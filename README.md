@@ -71,7 +71,7 @@ Todo application source:
 
 ## GitHub Actions Deployment
 
-The workflow in `.github/workflows/deploy.yml` deploys on every push to `main`.
+The workflow in `.github/workflows/deploy.yml` deploys when it is started manually from GitHub Actions.
 
 Required repository secrets:
 
@@ -79,6 +79,7 @@ Required repository secrets:
 | --- | --- |
 | `SERVER_HOST` | `1.94.218.30` |
 | `SERVER_USER` | `root` |
+| `SERVER_SSH_PORT` | `22` |
 | `SERVER_APP_DIR` | `/opt/lab12-final-project-20242174` |
 | `SERVER_SSH_KEY` | Private SSH key used only for deployment |
 | `SITE_URL` | `http://1.94.218.30:18080/` |
