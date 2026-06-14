@@ -16,7 +16,7 @@ Basic Development and Operation - Lab 12 Final Work
 - Target todo application: <http://1.94.218.30:18100/>
 - GitHub repository: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174>
 
-Current deployment status: local Docker Compose and remote deployment are verified. Latest successful deployment workflow: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174/actions/runs/27506451167>.
+Current deployment status: local Docker Compose and remote deployment are verified. Latest successful deployment workflow: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174/actions/runs/27506645147>.
 
 ## Project Structure
 
