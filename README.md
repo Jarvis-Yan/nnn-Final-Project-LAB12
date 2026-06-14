@@ -12,9 +12,11 @@ Basic Development and Operation - Lab 12 Final Work
 
 ## Application URLs
 
-- Personal website: <http://1.94.218.30:18080/>
-- Todo application: <http://1.94.218.30:18000/>
+- Target personal website: <http://1.94.218.30:18080/>
+- Target todo application: <http://1.94.218.30:18000/>
 - GitHub repository: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174>
+
+Current deployment status: local Docker Compose is verified. Remote deployment is pending until SSH access to `1.94.218.30` is available; the server currently closes SSH connections before returning a host key.
 
 ## Project Structure
 
@@ -102,6 +104,6 @@ docker compose up -d --build
 - [x] Include todo application in Docker Compose.
 - [ ] Replace TODO member names, student IDs, and contribution percentages.
 - [ ] Confirm repository is public.
-- [ ] Deploy both applications to the server.
+- [ ] Deploy both applications to the server after SSH access is fixed.
 - [ ] Record the process as `.mp4`.
 - [ ] Submit GitHub URL and video file or video URL.
