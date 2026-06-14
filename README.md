@@ -16,7 +16,7 @@ Basic Development and Operation - Lab 12 Final Work
 - Target todo application: <http://1.94.218.30:18000/>
 - GitHub repository: <https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174>
 
-Current deployment status: local Docker Compose is verified. Remote deployment is pending until SSH access to `1.94.218.30` is available; the server currently closes SSH connections before returning a host key.
+Current deployment status: local Docker Compose is verified. Remote deployment targets SSH port `2000` on `1.94.218.30`.
 
 ## Project Structure
 
@@ -73,7 +73,7 @@ Todo application source:
 
 ## GitHub Actions Deployment
 
-The workflow in `.github/workflows/deploy.yml` deploys when it is started manually from GitHub Actions.
+The workflow in `.github/workflows/deploy.yml` deploys automatically on pushes to `main`. It can also be started manually from GitHub Actions.
 
 Required repository secrets:
 
@@ -81,7 +81,7 @@ Required repository secrets:
 | --- | --- |
 | `SERVER_HOST` | `1.94.218.30` |
 | `SERVER_USER` | `root` |
-| `SERVER_SSH_PORT` | `22` |
+| `SERVER_SSH_PORT` | `2000` |
 | `SERVER_APP_DIR` | `/opt/lab12-final-project-20242174` |
 | `SERVER_SSH_KEY` | Private SSH key used only for deployment |
 | `SITE_URL` | `http://1.94.218.30:18080/` |
@@ -103,7 +103,7 @@ docker compose up -d --build
 - [x] Add Docker Compose file.
 - [x] Include todo application in Docker Compose.
 - [ ] Replace TODO member names, student IDs, and contribution percentages.
-- [ ] Confirm repository is public.
-- [ ] Deploy both applications to the server after SSH access is fixed.
+- [x] Confirm repository is public.
+- [ ] Deploy both applications to the server.
 - [ ] Record the process as `.mp4`.
 - [ ] Submit GitHub URL and video file or video URL.
