@@ -1,0 +1,52 @@
+name: Deploy Lab12 Final Project
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy both applications with Docker Compose
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/lab12_deploy_key
+          chmod 600 ~/.ssh/lab12_deploy_key
+          ssh-keyscan -H "${{ secrets.SERVER_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Upload project files
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_APP_DIR: ${{ secrets.SERVER_APP_DIR }}
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/lab12_deploy_key" \
+            ./ "${SERVER_USER}@${SERVER_HOST}:${SERVER_APP_DIR}/"
+
+      - name: Start services
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_APP_DIR: ${{ secrets.SERVER_APP_DIR }}
+        run: |
+          ssh -i ~/.ssh/lab12_deploy_key "${SERVER_USER}@${SERVER_HOST}" \
+            "cd '${SERVER_APP_DIR}' && docker compose up -d --build"
+
+      - name: Verify deployed applications
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          TODO_URL: ${{ secrets.TODO_URL }}
+        run: |
+          curl -fsS "${SITE_URL}" | grep -F "20242174"
+          curl -fsS "${TODO_URL}" >/dev/null

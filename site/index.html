@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab12 Final Project - Team 20242174</title>
+    <meta
+      name="description"
+      content="Lab12 final project personal and team website for Basic Development and Operation."
+    >
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f5f7fb;
+        color: #182235;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(120deg, rgba(14, 116, 144, 0.1), transparent 32rem),
+          linear-gradient(240deg, rgba(34, 197, 94, 0.1), transparent 28rem),
+          #f5f7fb;
+      }
+
+      header,
+      main,
+      footer {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 48px 0 28px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .label {
+        color: #0f766e;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 850px;
+        font-size: clamp(36px, 7vw, 74px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        font-size: 28px;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      .intro {
+        max-width: 720px;
+        font-size: 18px;
+        color: #42506a;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background: #ffffff;
+        color: #172033;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        border-color: #0f766e;
+        background: #0f766e;
+        color: #ffffff;
+      }
+
+      main {
+        display: grid;
+        gap: 28px;
+        padding-bottom: 44px;
+      }
+
+      section {
+        padding: 28px;
+        border: 1px solid #d9e2ef;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .member {
+        display: grid;
+        gap: 14px;
+        align-content: start;
+        min-width: 0;
+      }
+
+      .member img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #d9e2ef;
+        background: #e2e8f0;
+      }
+
+      .member h3 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .member dl {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 8px 12px;
+        margin: 0;
+        color: #42506a;
+      }
+
+      .member dt {
+        font-weight: 700;
+        color: #182235;
+      }
+
+      .member dd {
+        margin: 0;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .stack-item {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+        border: 1px solid #d9e2ef;
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .stack-item strong {
+        font-size: 18px;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: #e8eef7;
+        color: #0f172a;
+      }
+
+      footer {
+        padding: 0 0 32px;
+        color: #64748b;
+        font-size: 14px;
+      }
+
+      @media (max-width: 780px) {
+        header {
+          padding-top: 32px;
+        }
+
+        section {
+          padding: 22px;
+        }
+
+        .team-grid,
+        .stack-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="label">Basic Development and Operation - Lab 12</div>
+      <h1>Final Project Deployment</h1>
+      <p class="intro">
+        This website introduces our Lab12 team and demonstrates a Dockerized
+        personal website deployed together with an open source todo application
+        on one server using Docker Compose and GitHub Actions.
+      </p>
+      <div class="actions" aria-label="Project links">
+        <a class="button primary" href="http://1.94.218.30/">Personal website</a>
+        <a class="button" href="http://1.94.218.30:8000/">Todo application</a>
+        <a class="button" href="https://github.com/Jarvis-Yan/Lab12-Final-Project-20242174">GitHub repository</a>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="team-heading">
+        <h2 id="team-heading">Team Members</h2>
+        <div class="team-grid">
+          <article class="member">
+            <img src="assets/jarvis-yan.png" alt="Jarvis-Yan GitHub avatar">
+            <h3>Jerry Yan</h3>
+            <dl>
+              <dt>GitHub</dt>
+              <dd>Jarvis-Yan</dd>
+              <dt>Student ID</dt>
+              <dd>20242174</dd>
+              <dt>Work</dt>
+              <dd>Website, Docker, GitHub Actions, deployment</dd>
+              <dt>Share</dt>
+              <dd>TODO%</dd>
+            </dl>
+          </article>
+
+          <article class="member">
+            <img src="assets/teriri114514.png" alt="TeRiRi114514 GitHub avatar">
+            <h3>TODO: real name</h3>
+            <dl>
+              <dt>GitHub</dt>
+              <dd>TeRiRi114514</dd>
+              <dt>Student ID</dt>
+              <dd>TODO</dd>
+              <dt>Work</dt>
+              <dd>TODO</dd>
+              <dt>Share</dt>
+              <dd>TODO%</dd>
+            </dl>
+          </article>
+
+          <article class="member">
+            <img src="assets/djz08.png" alt="djz08 GitHub avatar">
+            <h3>TODO: real name</h3>
+            <dl>
+              <dt>GitHub</dt>
+              <dd>djz08</dd>
+              <dt>Student ID</dt>
+              <dd>TODO</dd>
+              <dt>Work</dt>
+              <dd>TODO</dd>
+              <dt>Share</dt>
+              <dd>TODO%</dd>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="deployment-heading">
+        <h2 id="deployment-heading">Deployment Stack</h2>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <strong>Personal website</strong>
+            <p>
+              Static HTML and local avatar assets are built into an
+              <code>nginx:alpine</code> container using this project's
+              <code>Dockerfile</code>.
+            </p>
+          </div>
+          <div class="stack-item">
+            <strong>Todo application</strong>
+            <p>
+              The stack builds the Docker official sample
+              <code>dockersamples/todo-list-app</code> source as the second
+              application in the same <code>docker-compose.yml</code>
+              deployment.
+            </p>
+          </div>
+          <div class="stack-item">
+            <strong>Automation</strong>
+            <p>
+              GitHub Actions copies the repository to the server, starts both
+              services with Docker Compose, and verifies both URLs.
+            </p>
+          </div>
+          <div class="stack-item">
+            <strong>Server</strong>
+            <p>
+              Both applications are deployed on one server:
+              <code>1.94.218.30</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Lab12 Final Project - Basic Development and Operation - 2026
+    </footer>
+  </body>
+</html>

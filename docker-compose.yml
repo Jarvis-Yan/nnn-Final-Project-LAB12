@@ -1,0 +1,36 @@
+services:
+  profile-site:
+    build: .
+    image: lab12-profile-site:20242174
+    container_name: lab12-profile-site
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
+  todo:
+    build: ./vendor/todo-list-app
+    image: lab12-todo-app:20242174
+    container_name: lab12-todo
+    restart: unless-stopped
+    depends_on:
+      - todo-db
+    ports:
+      - "8000:3000"
+    environment:
+      MYSQL_HOST: todo-db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  todo-db:
+    image: mysql:8.0
+    container_name: lab12-todo-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+    volumes:
+      - todo_mysql_data:/var/lib/mysql
+
+volumes:
+  todo_mysql_data:
